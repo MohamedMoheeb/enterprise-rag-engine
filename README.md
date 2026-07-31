@@ -127,7 +127,7 @@ docker compose up -d --build
 
 ## API Reference
 
-### 1. Ingest Document Stream
+### Ingest Document Stream
 * **Endpoint:** `POST /ingest`
 * **Headers:** `X-Document-Name: employee_handbook.pdf`
 * **Body:** Raw Binary / File Stream (`application/octet-stream`)
@@ -140,21 +140,4 @@ docker compose up -d --build
 }
 ```
 
-### 2. Execute RAG Context Query
-* **Endpoint:** `POST /query`
-* **Body:**
-```json
-{
-  "query": "What are the core policies outlined in the handbook?"
-}
-```
-* **Response:**
-```json
-{
-  "answer": "Based on the provided context, the core policies include...",
-  "retrieved_chunks": [
-    "Context block 1 text snippet...",
-    "Context block 2 text snippet..."
-  ]
-}
-```
+
