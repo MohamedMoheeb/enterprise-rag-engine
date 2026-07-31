@@ -115,6 +115,8 @@ def query_rag(request: QueryRequest):
         query_vector = query_vector_res.data[0].embedding
 
         # Step 2: Query-to-Store Dot Product Matching (Cosine Similarity Search)
+        # should of use two way retrival method for sementic and lexical meaning 
+        # you can copy it from my other repositry "https://github.com/MohamedMoheeb/RAG-Reranking-pipeline.git"
         search_results = qdrant_client.search(
             collection_name=COLLECTION_NAME,
             query_vector=query_vector,
