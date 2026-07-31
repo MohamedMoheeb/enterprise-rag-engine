@@ -90,7 +90,7 @@ enterprise-rag-engine/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/enterprise-rag-engine.git
+git clone https://github.com/MohamedMoheeb/enterprise-rag-engine.git
 cd enterprise-rag-engine
 ```
 
