@@ -56,7 +56,7 @@ def chunk_text(text: str, chunk_size: int = 500, overlap: int = 100) -> list[str
     return chunks
 # this functin can be changed using one of the codes found in scripts i kept it like this for testing reasons
 @app.post("/ingest")
-async def ingest_document(
+def ingest_document(
     request: Request,
     x_document_name: str = Header(default="document.txt", alias="X-Document-Name")
 ):
@@ -104,7 +104,7 @@ async def ingest_document(
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/query", response_model=QueryResponse)
-async def query_rag(request: QueryRequest):
+def query_rag(request: QueryRequest):
     """The Runtime Retrieval-Augmented Generation Execution Loop."""
     try:
         # Step 1: Vectorize incoming natural language query
