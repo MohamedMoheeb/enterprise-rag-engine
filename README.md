@@ -2,14 +2,7 @@
 
 A production-grade, event-driven Retrieval-Augmented Generation (RAG) architecture built to ingest multi-format enterprise unstructured data (PDFs, Markdown, plain text) via Apache NiFi, vectorize content asynchronously via FastAPI into Qdrant, and deliver grounded, zero-hallucination contextual intelligence.
 
----
 
-> ⚠️ **Important API & Rate-Limiting Notice:**  
-> This project is configured by default to use **GitHub Models API (`models.github.ai`)** for prototyping using a free `GITHUB_TOKEN`. Free-tier API tokens enforce strict rate limits (Requests Per Minute / Tokens Per Minute). Heavy batch processing in Apache NiFi can trigger temporary `429 Too Many Requests` errors. Exponential backoff retry wrappers (`create_embeddings_with_retry`) are implemented in FastAPI to absorb these spikes.  
-> 
-> **For high-throughput production deployments:** Swap `base_url` in `app/main.py` to standard OpenAI (`api.openai.com`) with a commercial API key or replace it with a local CPU embedding model (e.g., `nomic-embed-text` via Ollama or `FastEmbed`).
-
----
 
 ## System Architecture
 
@@ -32,7 +25,14 @@ graph TD
     E -->|Grounded Answer Output| D
     D -->|JSON Payload Output| G
 ```
+---
 
+> ⚠️ **Important API & Rate-Limiting Notice:**  
+> This project is configured by default to use **GitHub Models API (`models.github.ai`)** for prototyping using a free `GITHUB_TOKEN`. Free-tier API tokens enforce strict rate limits (Requests Per Minute / Tokens Per Minute). Heavy batch processing in Apache NiFi can trigger temporary `429 Too Many Requests` errors. Exponential backoff retry wrappers (`create_embeddings_with_retry`) are implemented in FastAPI to absorb these spikes.  
+> 
+> **For high-throughput production deployments:** Swap `base_url` in `app/main.py` to standard OpenAI (`api.openai.com`) with a commercial API key or replace it with a local CPU embedding model (e.g., `nomic-embed-text` via Ollama or `FastEmbed`).
+
+---
 ---
 
 ## Key Features & Highlights
