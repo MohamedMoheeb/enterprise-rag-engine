@@ -54,7 +54,7 @@ def chunk_text(text: str, chunk_size: int = 500, overlap: int = 100) -> list[str
         chunks.append(text[start:end])
         start += (chunk_size - overlap)
     return chunks
-
+# this functin can be changed using one of the codes found in scripts i kept it like this for testing reasons
 @app.post("/ingest")
 async def ingest_document(
     request: Request,
