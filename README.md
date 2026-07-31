@@ -31,6 +31,7 @@ graph TD
 > This project is configured by default to use **GitHub Models API (`models.github.ai`)** for prototyping using a free `GITHUB_TOKEN`. Free-tier API tokens enforce strict rate limits (Requests Per Minute / Tokens Per Minute). Heavy batch processing in Apache NiFi can trigger temporary `429 Too Many Requests` errors. Exponential backoff retry wrappers (`create_embeddings_with_retry`) are implemented in FastAPI to absorb these spikes.  
 > 
 > **For high-throughput production deployments:** Swap `base_url` in `app/main.py` to standard OpenAI (`api.openai.com`) with a commercial API key or replace it with a local CPU embedding model (e.g., `nomic-embed-text` via Ollama or `FastEmbed`).
+> ** please add you open api key in .env file because i removed mine for security reasons
 
 ---
 ---
